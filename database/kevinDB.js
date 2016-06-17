@@ -16,12 +16,25 @@ var personSchema = new mongoose.Schema({
     name: {type: String, default: '', required: true}
 },{collection:'personTable'});
 
+personSchema.method('hello',function(){
+    console.log('hello.....');
+})
+
+var personSchema1 = new mongoose.Schema;
+personSchema1.add({
+    time: {type: Date, default: Date.now, required: true},
+    age: {type: Number, default: 20, required: true},
+    name: {type: String, default: '', required: true}
+},{collection:'personTable'});
+
 var PersonModel = db.model("person",personSchema);
 
 var PersonEntity = new PersonModel({
     name:"likai",
     age:26
 });
+
+PersonEntity.hello();
 
 /*console.log("name="+PersonEntity.name);
 console.log("age="+PersonEntity.age);
